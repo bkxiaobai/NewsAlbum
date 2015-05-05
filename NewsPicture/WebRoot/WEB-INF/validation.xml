@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<!-- 验证动态actionform中的元素属性 -->
+
+<form-validation>
+	<formset>
+		<!--管理员登录 -->
+		<form name="adminLoginForm">
+			<field property="userName" depends="required">
+				<arg key="userName.login.displayname" position="0" />
+			</field>
+			<field property="pass" depends="required">
+				<arg key="password.login.displayname" position="0" />
+			</field>
+		</form>
+		<!--客户登录 -->
+		<form name="userLoginForm">
+			<field property="username" depends="required">
+				<arg key="userName.login.displayname" position="0" />
+			</field>
+			<field property="password" depends="required">
+				<arg key="password.login.displayname" position="0" />
+			</field>
+		</form>
+		<!--客户注册 -->
+		<form name="userRegForm">
+			<field property="username" depends="required,maxlength">
+				<arg key="userName.login.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+
+			<field property="password" depends="required,maxlength,minlength">
+				<arg key="password.login.displayname" position="0" />
+				<arg name="minlength" key="${var:minlength}" resource="false"
+					position="1" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+
+			<field property="repass" depends="required,validwhen">
+				<arg key="repass.login.displayname" position="0" />
+				<msg name="validwhen" key="repass.valid" />
+				<var>
+					<var-name>test</var-name>
+					<var-value>(*this* == password)</var-value>
+				</var>
+			</field>
+		</form>
+		<!--客户注册时检查用户名 -->
+		<form name="checkNameForm">
+			<field property="userName" depends="required,maxlength">
+				<arg key="userName.login.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+		</form>
+		<!--前台添加相册 -->
+		<form name="addAlbumForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+			<field property="channel" depends="required">
+				<arg key="channel.album.displayname" position="0" />
+			</field>
+			<field property="keyword" depends="required,maxlength">
+				<arg key="keyword.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<!--修改密码 -->
+		<form name="updatePassForm">
+			<field property="old" depends="required,minlength,maxlength">
+				<arg key="old.login.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<arg name="minlength" key="${var:minlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+			</field>
+
+			<field property="newPass" depends="required,maxlength,minlength">
+				<arg key="newPass.login.displayname" position="0" />
+				<arg name="minlength" key="${var:minlength}" resource="false"
+					position="1" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+
+			<field property="rePass" depends="required,validwhen">
+				<arg key="repass.login.displayname" position="0" />
+				<msg name="validwhen" key="repass.valid" />
+				<var>
+					<var-name>test</var-name>
+					<var-value>(*this* == newPass)</var-value>
+				</var>
+			</field>
+		</form>
+		<!--修改相册信息 -->
+		<form name="updateAlbumForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+			<field property="channel" depends="required">
+				<arg key="channel.album.displayname" position="0" />
+			</field>
+			<field property="keyword" depends="required,maxlength">
+				<arg key="keyword.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<!--添加照片 -->
+		<form name="addPhotoForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+			<field property="image" depends="required">
+				<arg key="image.upload.displayname" position="0" />
+			</field>
+			<field property="keyword" depends="required,maxlength">
+				<arg key="keyword.album.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<!--添加分类 -->
+		<form name="addChannelForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.channel.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="photoPageForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.photo.displayname" position="0" />
+				<arg name="maxlength" key="${var:maxlength}" resource="false"
+					position="1" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>
