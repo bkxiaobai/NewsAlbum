@@ -10,10 +10,6 @@
 .style1 {
 	color: #333333
 }
-body {
-	background-image: url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
-}
--->
 </style>
 </head>
 
@@ -30,8 +26,7 @@ body {
 					<tr>
 						<td height="17"><jsp:include page="my_sail.jsp" /></td>
 					</tr>
-				</table>
-			</td>
+				</table></td>
 		</tr>
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
@@ -50,27 +45,49 @@ body {
 														<tr>
 															<td align="center" class="td_shang8_xia8"><a
 																href="${requestScope.photo.picUrl}" target="_blank"><img
-																	src="${requestScope.photo.picUrl}" border="0"> </a></td>
+																	src="${requestScope.photo.picUrl}" border="0"> </a>
+															</td>
 														</tr>
-													</table></td>
+													</table>
+												</td>
 											</tr>
 										</table>
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											<tr>
-												<td width="40">&nbsp;</td>
-												<td width="60">&nbsp;</td>
-												<td width="60">&nbsp;</td>
-												<td width="60">&nbsp;</td>
-												<td width="30">&nbsp;</td>
-												<td width="60">&nbsp;</td>
-												<td width="123">&nbsp;</td>
-												<td width="124">&nbsp;</td>
-											</tr>
+											<logic:present name="pwvo" scope="request">
+												<tr>
+													<td>&nbsp;</td>
+													<td class="Statistic2">最近评论：</td>
+													<td colspan="6" class="Statistic"><logic:iterate
+															id="pwvo" length="1" name="pwvo" scope="request">${pageScope.pwvo.content}<span
+																class="time">${pageScope.pwvo.addDate}</span>
+														</logic:iterate>
+													</td>
+												</tr>
+												<tr>
+													<td height="30">&nbsp;</td>
+													<td class="Statistic">&nbsp;</td>
+													<td colspan="6" class="Statistic"><a
+														href="seecomment.do?photoId=${requestScope.photo.id}">
+															点击查看更多评论</a>
+													</td>
+												</tr>
+											</logic:present>
+											<logic:notPresent name="pwvo" scope="request">
+												<tr>
+													<td>&nbsp;</td>
+													<td width="60" class="Statistic2"><bean:write
+															name="nohave" scope="request" ignore="true" />
+													</td>
+												</tr>
+											</logic:notPresent>
+										</tr>
 											<tr>
 												<td height="20">&nbsp;</td>
 												<td width="60" class="Statistic2">图片名称：</td>
 												<td class="Statistic"><bean:write name="photo"
-														property="title" scope="request" /></td>
+														property="title" scope="request" />
+												</td>
 												<td colspan="2" class="Statistic"><span class="style1">点击次数：</span>${requestScope.photo.times}</td>
 												<td colspan="2" class="Statistic">&nbsp;</td>
 												<td class="Statistic">&nbsp;</td>
@@ -87,11 +104,15 @@ body {
 												<td width="60" class="Statistic2">图片描述：</td>
 												<td colspan="6" class="Statistic">${requestScope.photo.keyword}</td>
 											</tr>
-										</table></td>
+											
+										</table>
+									</td>
 								</tr>
-							</table></td>
+							</table>
+						</td>
 					</tr>
-				</table></td>
+				</table>
+			</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>

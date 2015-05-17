@@ -1,5 +1,8 @@
 package com.np.service;
 
+import com.np.vo.AlbumWordVO;
+import com.np.vo.PhotoWordVO;
+
 import com.np.vo.AlbumVO;
 import com.np.vo.PhotoVO;
 import com.np.vo.ChannelVO;
@@ -9,6 +12,12 @@ import java.util.List;
 
 public interface NService {
 
+	void addPhotoWord(String title, String content, String addDate, Integer photoId, Integer clientId)throws NException;
+	void addAlbumWord(String title, String content, String addDate, Integer albumId, Integer clientId)throws NException;
+	int getAlbumWordCount(Integer AlbumId)throws NException;
+	List<AlbumWordVO> getAlbumWords(Integer AlbumId, int first, int pageSize)throws NException;
+	List<PhotoWordVO> getPhotoWords(Integer photoId, int first, int pageSize)throws NException;
+	int getWordCount(Integer photoId)throws NException;
 	// ÃÌº”œ‡≤·
 	void addAlbum(String title, String keyword, String createDate, long times,
 			Integer userId, Integer channelId) throws NException;

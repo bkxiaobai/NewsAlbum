@@ -3,6 +3,29 @@
 
 <struts-config>
 	<form-beans>
+		<!--添加留言 -->
+		<form-bean name="commentForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="title" type="java.lang.String" />
+			<form-property name="content" type="java.lang.String" />
+			<form-property name="photoId" type="java.lang.String" />
+		</form-bean>
+		<!--评论分页 -->
+		<form-bean name="photoWordPageForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="currentPage" type="java.lang.String" />
+			<form-property name="photoId" type="java.lang.String" />
+		</form-bean>
+		<!--添加相册留言 -->
+		<form-bean name="commentAlbumForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="title" type="java.lang.String" />
+			<form-property name="content" type="java.lang.String" />
+			<form-property name="albumId" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="albumPageForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="channelId" type="java.lang.String" />
+			<form-property name="currentPage" type="java.lang.String" />
+		</form-bean>
 		<!--前台用户登录 -->
 		<form-bean name="userLoginForm"
 			type="org.apache.struts.validator.DynaValidatorForm">
@@ -260,6 +283,14 @@
 		<action path="/photouser" scope="request">
 			<forward name="success" path="/WEB-INF/jsp/user_display.jsp" />
 		</action>
+		<action path="/seecomment" scope="request">
+			<forward name="success" path="/WEB-INF/jsp/see_comment.jsp"/>
+		</action>
+		<!--评论分页-->
+		<action path="/othercomment" scope="request" name="photoWordPageForm">
+			<forward name="success" path="/WEB-INF/jsp/see_comment.jsp"/>
+		</action>
+		
 		<!--查看相片搜索结果 -->
 		<action path="/photoserch" scope="request" name="photoSerchForm">
 			<forward name="success" path="/WEB-INF/jsp/photo_serch.jsp" />
@@ -272,12 +303,22 @@
 			<forward name="success" path="/WEB-INF/jsp/admin/admin_add_sort.jsp" />
 		</action>
 		<!-- 配置 多个上传 -->
-		<action path="/plUpload"
-			type="com.np.action.UploadMoreAction" name="uploadMoreForm"
-			scope="request">
+		<action path="/plUpload" type="com.np.action.UploadMoreAction"
+			name="uploadMoreForm" scope="request">
 			<forward name="success" path="/plphoto.jsp" />
 		</action>
-
+		<!-- 进入查看相册评论页面 -->
+		<action path="/seealbumcomment" name="commentAlbumForm">
+			<forward name="success" path="/WEB-INF/jsp/see_albumcomment.jsp" />
+		</action>
+		<!-- 添加评论 -->
+		<action path="/addAlbumComment" name="commentAlbumForm">
+			<forward name="success" path="/WEB-INF/jsp/see_albumcomment.jsp" />
+		</action>
+		<!--进入相片留言页面 -->
+		<action path="/addComment" scope="request" name="commentForm">
+			<forward name="success" path="/WEB-INF/jsp/display.jsp" />
+		</action>
 	</action-mappings>
 
 	<controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor" />

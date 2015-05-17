@@ -42,6 +42,7 @@
   <StrutsActivity path="/photoserch.do" location="350,1650" dimension="114,70" />
   <StrutsActivity path="/managechannel.do" location="1250,1050" dimension="139,70" />
   <StrutsActivity path="/addchannel.do" location="1550,1050" dimension="115,70" />
+  <StrutsActivity path="/plUpload.do" location="650,1650" dimension="354,104" />
   <StrutsActivity path="/WEB-INF/jsp/tec_support.jsp" location="1850,1050" dimension="204,53" />
   <StrutsActivity path="/WEB-INF/jsp/about_us.jsp" location="50,1250" dimension="188,53" />
   <StrutsActivity path="/WEB-INF/jsp/info.do" location="350,1250" dimension="168,87" />
@@ -56,22 +57,38 @@
   <StrutsActivity path="/WEB-INF/jsp/add_photo.jsp" location="950,1450" dimension="199,53" />
   <StrutsActivity path="/WEB-INF/jsp/update_photo_info.jsp" location="1250,1450" dimension="244,53" />
   <StrutsActivity path="/WEB-INF/jsp/admin/admin_add_sort.jsp" location="1550,1450" dimension="269,53" />
+  <StrutsActivity path="/plphoto.jsp" location="50,1650" dimension="103,53" />
   <StrutsActivity path="/mutityFileUpload.jsp" location="1250,1650" dimension="154,53" />
-  <StrutsActivity path="/plUpload.do" location="650,1650" dimension="354,104" />
-  <StrutsActivity path="/plphoto.jsp" />
+  <StrutsActivity path="/seealbumcomment.do" location="1550,1650" dimension="158,70" />
+  <StrutsActivity path="/addAlbumComment.do" location="1850,1650" dimension="164,70" />
+  <StrutsActivity path="/addComment.do" location="50,1850" dimension="127,70" />
+  <StrutsActivity path="/seecomment.do" />
+  <StrutsActivity path="/othercomment.do" />
+  <StrutsTransition id="/index.do,null,/WEB-INF/jsp/info.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addAlbumLink.do,null,/WEB-INF/jsp/add_album.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/admin.do,null,/WEB-INF/jsp/admin/login.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/updatepasslink.do,null,/WEB-INF/jsp/update_user_pass.jsp,1" routingType="0">
+  <StrutsTransition id="/addphotolink.do,null,/WEB-INF/jsp/add_photo.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addphotolink.do,null,/WEB-INF/jsp/add_photo.jsp,1" routingType="0">
+  <StrutsTransition id="/updatepasslink.do,null,/WEB-INF/jsp/update_user_pass.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
@@ -89,91 +106,13 @@
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/update_photo_info.jsp,null,/updatephotoInfo.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/register.jsp,null,/checkName.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/update_user_info.jsp,null,/updateinfo.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/add_photo.jsp,null,/addphoto.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/plUpload.do,success,/plphoto.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="827,1702" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/plUpload.do,success,/mutityFileUpload.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="1004,1676" />
-      <AbsolutePoint location="1250,1676" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/test.do,null,/WEB-INF/jsp/main2.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/multiUpload.do,success,/mutityFileUpload.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="1004,1676" />
-      <AbsolutePoint location="1250,1676" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/add_album.jsp,null,/addalbum.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/aboutus.do,null,/WEB-INF/jsp/about_us.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/update_user_pass.jsp,null,/updatepass.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/WEB-INF/jsp/admin/admin_add_sort.jsp,null,/addchannel.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/index.do,null,/WEB-INF/jsp/info.do,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/addAlbumLink.do,null,/WEB-INF/jsp/add_album.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="0,0" />
-      <AbsolutePoint location="0,0" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/WEB-INF/jsp/update_album_info.jsp,null,/updatealbumInfo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/update_photo_info.jsp,null,/updatephotoInfo.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
@@ -185,7 +124,61 @@
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/add_photo.jsp,null,/addphoto.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/update_user_info.jsp,null,/updateinfo.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/register.jsp,null,/checkName.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/plUpload.do,success,/plphoto.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="827,1702" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/WEB-INF/jsp/admin/login.jsp,null,/adminLogin.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/test.do,null,/WEB-INF/jsp/main2.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/aboutus.do,null,/WEB-INF/jsp/about_us.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/add_album.jsp,null,/addalbum.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/admin/admin_add_sort.jsp,null,/addchannel.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/jsp/update_user_pass.jsp,null,/updatepass.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
@@ -203,13 +196,13 @@
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/reglink.do,null,/WEB-INF/jsp/register.jsp,1" routingType="0">
+  <StrutsTransition id="/logout.do,success,/WEB-INF/jsp/memberLongin.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/logout.do,success,/WEB-INF/jsp/memberLongin.jsp,1" routingType="0">
+  <StrutsTransition id="/reglink.do,null,/WEB-INF/jsp/register.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="0,0" />

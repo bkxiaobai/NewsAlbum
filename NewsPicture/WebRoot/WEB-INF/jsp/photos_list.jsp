@@ -8,10 +8,12 @@
 <style type="text/css">
 <!--
 body {
-	background-image: url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
+	background-image:
+		url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
 }
 -->
-</style></head>
+</style>
+</head>
 
 <body>
 	<table width="768" align="center" border="0" cellspacing="0"
@@ -26,7 +28,8 @@ body {
 					<tr>
 						<td height="17"><jsp:include page="my_sail.jsp" /></td>
 					</tr>
-				</table></td>
+				</table>
+			</td>
 		</tr>
 		<script language="JavaScript" src="JavaScript/validate.js"></script>
 		<tr>
@@ -43,8 +46,7 @@ body {
 										${requestScope.page.rsCount}张相片</td>
 									<td class="sail"></td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 						<td width="8" class="td_shang12">&nbsp;</td>
 						<td width="19" height="35" class="td_shang12">&nbsp;</td>
 					</tr>
@@ -63,8 +65,7 @@ body {
 									<div class="PhotoWrapClass">
 										<div class="PhotoImgClass">
 											<a href="photouser.do?photoId=${pageScope.photo.id}"><img
-												src="${pageScope.photo.smallPicUrl}" border="0">
-											</a>
+												src="${pageScope.photo.smallPicUrl}" border="0"> </a>
 										</div>
 										<div class="PhotoNameClass"></div>
 									</div>
@@ -77,9 +78,15 @@ body {
 									<input type="hidden" name="pageCount"
 										value="${requestScope.page.pageCount}">
 								</html:form>
-							</div></td>
+							</div>
+						</td>
 					</tr>
-
+					<tr>
+						<td colspan="5" class="Statistic"><a
+							href="seealbumcomment.do?albumId=${sessionScope.albumInfo.id}">点击查看评论</a>
+						</td>
+						<br>
+					</tr>
 					<tr>
 						<td height="40" colspan="5" class="td_down"><div
 								align="center">
@@ -93,16 +100,13 @@ body {
 													href="javascript:prePage();">上一页</a> <a
 													href="javascript:nextPage();">下一页</a> <a
 													href="javascript:lastPage();">尾页</a>
-											</div>
-										</td>
+											</div></td>
 										<td width="32">&nbsp;</td>
 									</tr>
 								</table>
-							</div>
-						</td>
+							</div></td>
 					</tr>
-				</table>
-			</td>
+				</table></td>
 		</tr>
 </body>
 </html>

@@ -48,6 +48,8 @@
 		<property name="cd" ref="ChannelDao" />
 		<property name="pd" ref="PhotoDao" />
 		<property name="ud" ref="UserDao" />
+		<property name="awd" ref="AlbumWordDao" />
+		<property name="pwd" ref="PhotoWordDao" />
 	</bean>
 	<!-- 后台管理员 -->
 	<bean id="aService" class="com.np.service.AServiceImpl">
@@ -81,8 +83,38 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="AlbumWordDao" class="com.np.dao.AlbumWordDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PhotoWordDao" class="com.np.dao.PhotoWordDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 	<!-- 配置action -->
+	<!-- 察看相册评论 -->
+	<bean name="/seealbumcomment" class="com.np.action.ViewAlbumCommentAction">
+		<property name="ns" ref="nService" />
+	</bean>
+	<!-- 添加相册评论 -->
+	<bean name="/addAlbumComment" class="com.np.action.AddAlbumCommentAction">
+		<property name="ns" ref="nService" />
+	</bean>
+	<!--查看所有的评论 -->
+	<bean name="/seecomment" class="com.np.action.ViewPhotoUserAction">
+		<property name="ns" ref="nService" />
+	</bean>
+	<!--发表评论 -->
+	<bean name="/addComment" class="com.np.action.AddCommentAction">
+		<property name="ns" ref="nService" />
+	</bean>
+	<!--评论分页 -->
+	<bean name="/othercomment" class="com.np.action.OtherPhotoWordAction">
+		<property name="ns" ref="nService" />
+	</bean>
 	<!--后台管理员登录 -->
 	<bean name="/adminLogin" class="com.np.action.AdminLoginAction">
 		<property name="as" ref="aService" />
@@ -202,6 +234,21 @@
 	<bean name="/plupload" class="com.np.action.UploadMoreAction">
 		<property name="ns" ref="nService" />
 	</bean>
+	<!--留言拦截器 -->
+	<bean id="commentInter" class="com.np.interceptor.CommentInterceptor" />
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>/addComment</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>commentInter</value>
+			</list>
+		</property>
+	</bean>
 	<!--前台拦截器 -->
 	<bean id="userInter" class="com.np.interceptor.UserInterceptor" />
 	<bean
@@ -212,6 +259,7 @@
 				<value>/albumlist</value>
 				<value>/albumpage</value>
 				<value>/addalbum</value>
+				<value>/updateinfo</value>
 				<value>/updatepass</value>
 				<value>/viewalbuminfo</value>
 				<value>/viewphotoinfo</value>
@@ -223,6 +271,7 @@
 				<value>/delphoto</value>
 				<value>/viewphoto</value>
 				<value>/afterdel</value>
+				<value>/seealbumcomment</value>
 				<value>/changeCover</value>
 			</list>
 		</property>

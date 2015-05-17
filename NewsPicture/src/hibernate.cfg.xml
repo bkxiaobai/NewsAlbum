@@ -25,6 +25,8 @@
 		<mapping resource="com/np/po/Channel.hbm.xml" />
 		<mapping resource="com/np/po/Photo.hbm.xml" />
 		<mapping resource="com/np/po/User.hbm.xml" />
+		<mapping resource="com/np/po/AlbumWord.hbm.xml" />
+		<mapping resource="com/np/po/PhotoWord.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-  <display-name />
- 	<servlet>
-		<servlet-name>action</servlet-name>		
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="3.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name />
+	<servlet>
+		<servlet-name>action</servlet-name>
 		<servlet-class>com.np.servlet.MyActionServlet</servlet-class>
 		<init-param>
 			<param-name>config</param-name>
@@ -16,12 +18,12 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>init</servlet-name>		
+		<servlet-name>init</servlet-name>
 		<servlet-class>com.np.servlet.InitServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!--struts标签-->
-	 <jsp-config>
+	<!--struts标签 -->
+	<jsp-config>
 		<taglib>
 			<taglib-uri>/tags/struts-bean</taglib-uri>
 			<taglib-location>/WEB-INF/struts-bean.tld</taglib-location>

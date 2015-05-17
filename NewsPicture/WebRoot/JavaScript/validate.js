@@ -1,11 +1,13 @@
 
    /*$RCSfile: validateFloatRange.js,v $ $Revision: 1.9 $ $Date: 2015/05/01 16:53:21 $ */
     /**
-    * Check to see if fields are in a valid float range.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are in a valid float range. Fields are not checked
+	 * if they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateFloatRange(form) {
         var isValid = true;
         var focusField = null;
@@ -41,21 +43,27 @@
         return isValid;
     }
 
-    /*$RCSfile: validateUtilities.js,v $ $Revision: 1.2 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateUtilities.js,v $ $Revision: 1.2 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
 
   /**
-  * This is a place holder for common utilities used across the javascript validation
-  *
-  **/
+	 * This is a place holder for common utilities used across the javascript
+	 * validation
+	 * 
+	 */
 
 
-    /*$RCSfile: validateByte.js,v $ $Revision: 1.9 $ $Date: 2004/03/28 16:53:21 $ */
+    /* $RCSfile: validateByte.js,v $ $Revision: 1.9 $ $Date: 2004/03/28 16:53:21 $ */
     /**
-    * Check to see if fields are a valid byte.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid byte. Fields are not checked if they
+	 * are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateByte(form) {
         var bValid = true;
         var focusField = null;
@@ -116,16 +124,23 @@
     }
 
 
-    /*$RCSfile: validateMaxLength.js,v $ $Revision: 1.10 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateMaxLength.js,v $ $Revision: 1.10 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * A field is considered valid if less than the specified maximum.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * <strong>Caution:</strong> Using <code>validateMaxLength</code> on a password field in a 
-    *  login page gives unnecessary information away to hackers. While it only slightly
-    *  weakens security, we suggest using it only when modifying a password.</p>
-    * @param form The form validation is taking place on.
-    */
+	 * A field is considered valid if less than the specified maximum. Fields
+	 * are not checked if they are disabled.
+	 * <p>
+	 * <strong>Caution:</strong> Using <code>validateMaxLength</code> on a
+	 * password field in a login page gives unnecessary information away to
+	 * hackers. While it only slightly weakens security, we suggest using it
+	 * only when modifying a password.
+	 * </p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateMaxLength(form) {
         var isValid = true;
         var focusField = null;
@@ -161,13 +176,18 @@
     }
 
 
-    /*$RCSfile: validateRequired.js,v $ $Revision: 1.13 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateRequired.js,v $ $Revision: 1.13 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    *  Check to see if fields must contain a value.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields must contain a value. Fields are not checked if
+	 * they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
 
     function validateRequired(form) {
         var isValid = true;
@@ -260,13 +280,18 @@
     }
 
 
-    /*$RCSfile: validateInteger.js,v $ $Revision: 1.9 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateInteger.js,v $ $Revision: 1.9 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid integer.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid integer. Fields are not checked if
+	 * they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateInteger(form) {
         var bValid = true;
         var focusField = null;
@@ -346,13 +371,18 @@
     }
 
 
-    /*$RCSfile: validateCreditCard.js,v $ $Revision: 1.8 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateCreditCard.js,v $ $Revision: 1.8 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid creditcard number based on Luhn checksum.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid creditcard number based on Luhn
+	 * checksum. Fields are not checked if they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateCreditCard(form) {
         var bValid = true;
         var focusField = null;
@@ -384,10 +414,11 @@
     }
 
     /**
-     * Checks whether a given credit card number has a valid Luhn checksum.
-     * This allows you to spot most randomly made-up or garbled credit card numbers immediately.
-     * Reference: http://www.speech.cs.cmu.edu/~sburke/pub/luhn_lib.html
-     */
+	 * Checks whether a given credit card number has a valid Luhn checksum. This
+	 * allows you to spot most randomly made-up or garbled credit card numbers
+	 * immediately. Reference:
+	 * http://www.speech.cs.cmu.edu/~sburke/pub/luhn_lib.html
+	 */
     function luhnCheck(cardNumber) {
         if (isLuhnNum(cardNumber)) {
             var no_digit = cardNumber.length;
@@ -422,13 +453,18 @@
     }
 
 
-   /*$RCSfile: validateDate.js,v $ $Revision: 1.10 $ $Date: 2004/03/28 16:53:21 $ */
+   /*
+	 * $RCSfile: validateDate.js,v $ $Revision: 1.10 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid date.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid date. Fields are not checked if they
+	 * are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateDate(form) {
        var bValid = true;
        var focusField = null;
@@ -584,13 +620,18 @@
     }
 
 
-    /*$RCSfile: validateIntRange.js,v $ $Revision: 1.10 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateIntRange.js,v $ $Revision: 1.10 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields is in a valid integer range.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields is in a valid integer range. Fields are not
+	 * checked if they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateIntRange(form) {
         var isValid = true;
         var focusField = null;
@@ -636,13 +677,18 @@
     }
 
 
-    /*$RCSfile: validateShort.js,v $ $Revision: 1.9 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateShort.js,v $ $Revision: 1.9 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    *  Check to see if fields are a valid short.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid short. Fields are not checked if they
+	 * are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateShort(form) {
         var bValid = true;
         var focusField = null;
@@ -703,13 +749,18 @@
     }
 
 
-    /*$RCSfile: validateFloat.js,v $ $Revision: 1.11 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateFloat.js,v $ $Revision: 1.11 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid float.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid float. Fields are not checked if they
+	 * are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateFloat(form) {
         var bValid = true;
         var focusField = null;
@@ -742,7 +793,7 @@
                 if (value.length > 0) {
                     // remove '.' before checking digits
                     var tempArray = value.split('.');
-                    //Strip off leading '0'
+                    // Strip off leading '0'
                     var zeroIndex = 0;
                     var joinedString= tempArray.join('');
                     while (joinedString.charAt(zeroIndex) == '0') {
@@ -778,13 +829,18 @@
     }
 
 
-   /*$RCSfile: validateEmail.js,v $ $Revision: 1.9 $ $Date: 2004/03/28 16:53:21 $ */
+   /*
+	 * $RCSfile: validateEmail.js,v $ $Revision: 1.9 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid email address.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid email address. Fields are not checked
+	 * if they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateEmail(form) {
         var bValid = true;
         var focusField = null;
@@ -819,9 +875,9 @@
     }
 
     /**
-     * Reference: Sandeep V. Tamhankar (stamhankar@hotmail.com),
-     * http://javascript.internet.com
-     */
+	 * Reference: Sandeep V. Tamhankar (stamhankar@hotmail.com),
+	 * http://javascript.internet.com
+	 */
     function checkEmail(emailStr) {
        if (emailStr.length == 0) {
            return true;
@@ -873,13 +929,18 @@
   
 
 
-    /*$RCSfile: validateMask.js,v $ $Revision: 1.10 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateMask.js,v $ $Revision: 1.10 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * Check to see if fields are a valid using a regular expression.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * @param form The form validation is taking place on.
-    */
+	 * Check to see if fields are a valid using a regular expression. Fields are
+	 * not checked if they are disabled.
+	 * <p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateMask(form) {
         var isValid = true;
         var focusField = null;
@@ -920,16 +981,23 @@
     }
 
 
-    /*$RCSfile: validateMinLength.js,v $ $Revision: 1.11 $ $Date: 2004/03/28 16:53:21 $ */
+    /*
+	 * $RCSfile: validateMinLength.js,v $ $Revision: 1.11 $ $Date: 2004/03/28
+	 * 16:53:21 $
+	 */
     /**
-    * A field is considered valid if greater than the specified minimum.
-    * Fields are not checked if they are disabled.
-    * <p>
-    * <strong>Caution:</strong> Using <code>validateMinLength</code> on a password field in a 
-    *  login page gives unnecessary information away to hackers. While it only slightly
-    *  weakens security, we suggest using it only when modifying a password.</p>
-    * @param form The form validation is taking place on.
-    */
+	 * A field is considered valid if greater than the specified minimum. Fields
+	 * are not checked if they are disabled.
+	 * <p>
+	 * <strong>Caution:</strong> Using <code>validateMinLength</code> on a
+	 * password field in a login page gives unnecessary information away to
+	 * hackers. While it only slightly weakens security, we suggest using it
+	 * only when modifying a password.
+	 * </p>
+	 * 
+	 * @param form
+	 *            The form validation is taking place on.
+	 */
     function validateMinLength(form) {
         var isValid = true;
         var focusField = null;
@@ -967,60 +1035,48 @@
     }
 
 
-//End --> 
+// End -->
 
-   //MyScript
-    //jump page
+   // MyScript
+    // jump page
 	function nextPage(pageForm)
 	{
 	/*
-		if(pageForm.currentPage.value==parseInt(pageForm.pageCount.value))
-		{
-			alert("This is the last page!");
-			return;
-		}
-		*/
+	 * if(pageForm.currentPage.value==parseInt(pageForm.pageCount.value)) {
+	 * alert("This is the last page!"); return; }
+	 */
 		pageForm.currentPage.value = parseInt(pageForm.currentPage.value) + 1;
 		pageForm.submit();
 		
 	}
 	function prePage(pageForm)
 	{
-	/* ti shi yu ju
-		if(pageForm.currentPage.value==1)
-		{
-			alert("This is the first page!");
-			return;
-		}
-		*/
+	/*
+	 * ti shi yu ju if(pageForm.currentPage.value==1) { alert("This is the first
+	 * page!"); return; }
+	 */
 		pageForm.currentPage.value = parseInt(pageForm.currentPage.value) - 1;
 		pageForm.submit();
 	}
 	function firstPage(pageForm)
 	{
 	/*
-		if(pageForm.currentPage.value==1)
-		{
-			alert("This is the first page!");
-			return;
-		}
-		*/
+	 * if(pageForm.currentPage.value==1) { alert("This is the first page!");
+	 * return; }
+	 */
 		pageForm.currentPage.value = 1;
 		pageForm.submit();
 	}
 	function lastPage(pageForm)
 	{
 	/*
-		if(pageForm.currentPage.value==parseInt(pageForm.pageCount.value))
-		{
-			alert("This is the last page!");
-			return;
-		}
-		*/
+	 * if(pageForm.currentPage.value==parseInt(pageForm.pageCount.value)) {
+	 * alert("This is the last page!"); return; }
+	 */
 		pageForm.currentPage.value = parseInt(pageForm.pageCount.value)
 		pageForm.submit();
 	}
-	//重写分页
+	// 重写分页
 	function nextPageNew(pageForm, currentPage, pageCount)
 	{
 		pageForm.currentPage.value = parseInt(pageForm.currentPage.value) + 1;
@@ -1042,7 +1098,7 @@
 		pageForm.currentPage.value = pageForm.pageCount.value;
 		pageForm.submit();
 	}
-	//后台登录
+	// 后台登录
     var bCancel = false; 
 	
     function validateAdminLoginForm(form) { 
@@ -1059,7 +1115,7 @@
      this.a0 = new Array("userName", "请输入用户名", new Function ("varName", " return this[varName];"));
      this.a1 = new Array("pass", "请输入密码", new Function ("varName", " return this[varName];"));
     } 
-	//客户登录
+	// 客户登录
     function validateUserLoginForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1074,7 +1130,7 @@
      this.a0 = new Array("username", "请输入用户名", new Function ("varName", " return this[varName];"));
      this.a1 = new Array("password", "请输入密码", new Function ("varName", " return this[varName];"));
     } 
-	//检查用户名
+	// 检查用户名
 
 	function checkNameFormSubmit()
 	{
@@ -1095,7 +1151,7 @@
 		}
 
 	}
-	//客户注册
+	// 客户注册
     function validateUserRegForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1122,7 +1178,7 @@
      this.a0 = new Array("password", "密码长度必须大于 6 位.", new Function ("varName", "this.maxlength='24'; this.minlength='6';  return this[varName];"));
     } 
 
-	//添加相册
+	// 添加相册
     function validateAddAlbumForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1148,7 +1204,7 @@
         this.a0 = new Array("title", "图片名长度必须小于 200个字符.", new Function ("varName", "this.maxlength='200';  return this[varName];"));
         this.a1 = new Array("keyword", "相册描述长度必须小于 200 个字符.", new Function ("varName", "this.maxlength='200';  return this[varName];"));
        } 
-	//修改密码
+	// 修改密码
     function validateUpdatePassForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1174,7 +1230,7 @@
      this.a0 = new Array("old", "旧密码长度必须小于 24 个字符.", new Function ("varName", "this.maxlength='24'; this.minlength='6';  return this[varName];"));
      this.a1 = new Array("newPass", "新密码长度必须小于 24 个字符.", new Function ("varName", "this.maxlength='24'; this.minlength='6';  return this[varName];"));
     } 
-	//修改相册信息
+	// 修改相册信息
     function validateUpdateAlbumForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1195,7 +1251,7 @@
      this.a0 = new Array("title", "相册名长度必须小于 24 个字符.", new Function ("varName", "this.maxlength='24';  return this[varName];"));
      this.a1 = new Array("keyword", "相册描述长度必须小于 200 个字符.", new Function ("varName", "this.maxlength='200';  return this[varName];"));
     } 
-	//添加相片
+	// 添加相片
     function validateAddPhotoForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1217,7 +1273,29 @@
      this.a1 = new Array("keyword", "相册描述长度必须小于 200 个字符.", new Function ("varName", "this.maxlength='200';  return this[varName];"));
     } 
 
-	//添加栏目
+  // 发表评论
+	function showCommentForm()
+	{
+		if (document.getElementById("commentForm").style.display == "block")
+		{
+			document.getElementById("commentForm").style.display = "none";
+		}
+		else
+		{
+			document.getElementById("commentForm").style.display = "block";
+		}
+	}
+	// 验证发评论
+    function validateCommentForm(form) { 
+        if (bCancel) { 
+            return true; 
+        } else { 
+            var formValidationResult; 
+            formValidationResult = validateRequired(form) && validateMaxLength(form); 
+            return (formValidationResult); 
+        } 
+    } 
+	// 添加栏目
     function validateAddKindForm(form) { 
         if (bCancel) { 
             return true; 
@@ -1236,8 +1314,8 @@
      this.a0 = new Array("title", "栏目名长度必须小于 8 个字符.", new Function ("varName", "this.maxlength='8';  return this[varName];"));
     } 
 
-	//JAVASCRIPT
-	//memberLongin.jsp页面
+	// JAVASCRIPT
+	// memberLongin.jsp页面
 	today=new Date();
 	jran=today.getTime();
 
@@ -1251,5 +1329,5 @@
 		return jran/(im*1.0);
 	};
 
-//register.jsp
+// register.jsp
 

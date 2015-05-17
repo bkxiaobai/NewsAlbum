@@ -1,5 +1,11 @@
 package com.np.service;
 
+import com.np.vo.AlbumWordVO;
+import com.np.vo.PhotoWordVO;
+import com.np.po.AlbumWord;
+import com.np.po.PhotoWord;
+import com.np.dao.AlbumWordDao;
+import com.np.dao.PhotoWordDao;
 import com.np.service.NService;
 import com.np.dao.PhotoDao;
 import com.np.dao.UserDao;
@@ -27,6 +33,10 @@ public class NServiceImpl implements NService {
 	private AlbumDao ad;
 	// 业务逻辑组件持久化访问依赖的ChannelDao组件
 	private ChannelDao cd;
+	// 业务逻辑组件持久化访问依赖的PhotoWordDao组件
+	private PhotoWordDao pwd;
+	// 业务逻辑组件持久化访问依赖的AlbumWordDao组件
+	private AlbumWordDao awd;
 
 	// spring中ioc的实现
 
@@ -46,8 +56,131 @@ public class NServiceImpl implements NService {
 	public void setUd(UserDao ud) {
 		this.ud = ud;
 	}
+	public void setPwd(PhotoWordDao pwd)
+	{
+		this.pwd = pwd;
+	}
+	public void setAwd(AlbumWordDao awd)
+	{
+		this.awd = awd;
+	}
+	
+	
+	public void addPhotoWord(String title, String content, String addDate, Integer photoId, Integer clientId)
+			throws NException
+		{
+			try
+			{
+				Photo photo = pd.get(photoId);
+				User client = ud.get(clientId);
+				pwd.save(new PhotoWord(title, content, addDate, photo, client));
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("发表评论异常");
+			}
+		}
+		/**
+		 * 新增相册评论
+		 * @param title
+		 * @param content
+		 * @param addDate
+		 * @param AlbumId
+		 * @param clientId
+		 * @throws MyException
+		 */
+		public void addAlbumWord(String title, String content, String addDate, Integer albumId, Integer clientId)throws NException
+		{
+			try
+			{
+				Album album = ad.get(albumId);
+				User client = ud.get(clientId);
+				awd.save(new AlbumWord(title, content, addDate, album, client));
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("发表评论异常");
+			}
+		}
+	
+		public List<AlbumWordVO> getAlbumWords(Integer AlbumId, int first, int pageSize)throws NException
+		{
+			try
+			{
+				List<AlbumWordVO> awvos = new ArrayList<AlbumWordVO>();
+				Album album = ad.get(AlbumId);
+				List<AlbumWord> aws = awd.getAlbumWordByPhoto(album, first, pageSize);
+				for (Iterator<AlbumWord> it = aws.iterator() ; it.hasNext() ; )
+				{
+					AlbumWord aw = (AlbumWord)it.next();
+					awvos.add(fillAlbumVO(aw));
+				}
+				return awvos;
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("查询相片留言异常");
+			}
+			
+		}
 
-	/**
+		public int getAlbumWordCount(Integer AlbumId)throws NException
+		{
+			try
+			{
+				Album album = ad.get(AlbumId);
+				return awd.getCount(album);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("查询评论总数异常");
+			}
+		}
+		
+		public List<PhotoWordVO> getPhotoWords(Integer photoId, int first, int pageSize)throws NException
+		{
+			try
+			{
+				List<PhotoWordVO> pwvos = new ArrayList<PhotoWordVO>();
+				Photo photo = pd.get(photoId);
+				List<PhotoWord> pws = pwd.getPhotoWordByPhoto(photo, first, pageSize);
+				for (Iterator<PhotoWord> it = pws.iterator() ; it.hasNext() ; )
+				{
+					PhotoWord pw = (PhotoWord)it.next();
+					pwvos.add(fillPhotoVO(pw));
+				}
+				return pwvos;
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("查询相片留言异常");
+			}
+		}
+
+		/**
+		 * 根据相片评论ID获取相片评论总数
+		 * @param photoId 指定相片ID
+		 * @return 该相片对应的相片评论总数。
+		 */
+		public int getWordCount(Integer photoId)throws NException
+		{
+			try
+			{
+				Photo photo = pd.get(photoId);
+				return pwd.getCount(photo);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+				throw new NException("查询评论总数异常");
+			}
+		}
+		/**
 	 * 新增相册
 	 * 
 	 * @param title
@@ -470,9 +603,7 @@ public class NServiceImpl implements NService {
 		}
 	}
 
-	
-	public List<PhotoVO> findPhotos(String title)
-			throws NException {
+	public List<PhotoVO> findPhotos(String title) throws NException {
 		try {
 			List<Photo> result = pd.findByTitle(title);
 			List<PhotoVO> pvos = new ArrayList<PhotoVO>();
@@ -486,6 +617,7 @@ public class NServiceImpl implements NService {
 			throw new NException("查询图片异常,请重试");
 		}
 	}
+
 	/**
 	 * 获取指定相册下包含相片数量
 	 * 
@@ -764,5 +896,16 @@ public class NServiceImpl implements NService {
 				photo.getAlbum().getTitle());
 		return pvo;
 	}
-
+	private PhotoWordVO fillPhotoVO(PhotoWord pw)throws Exception
+	{
+		PhotoWordVO pwvo = new PhotoWordVO(pw.getId(), pw.getTitle(), pw.getContent(), pw.getAddDate(), 
+			pw.getPhoto().getId(), pw.getPhoto().getTitle(), pw.getUser().getId(), pw.getUser().getUsername());
+		return pwvo;
+	}
+	private AlbumWordVO fillAlbumVO(AlbumWord aw)throws Exception
+	{
+		AlbumWordVO awvo = new AlbumWordVO(aw.getId(), aw.getTitle(), aw.getContent(), aw.getAddDate(), 
+			aw.getAlbum().getId(), aw.getAlbum().getTitle(), aw.getUser().getId(), aw.getUser().getUsername());
+		return awvo;
+	}
 }

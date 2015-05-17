@@ -26,7 +26,7 @@
 		</td>
 		<td width="14%" class="sail">
 			<div align="center" cellpadding="0">
-					<a href="http://xiuxiu.web.meitu.com" target="targetFrame">在线编辑图片</a>
+					<a href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html" target="targetFrame">在线编辑图片</a>
 			</div></td>
 	</tr>
 </table>

@@ -97,6 +97,25 @@
 				</var>
 			</field>
 		</form>
+		<!--发表评论-->
+		<form name="commentForm">
+			<field property="title" depends="required,maxlength">
+				<arg key="title.comment.displayname" position="0"/>
+				<arg name="maxlength" key="${var:maxlength}" resource="false" position="1"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>24</var-value>
+				</var>
+			</field>
+			<field property="content" depends="required,maxlength">
+				<arg key="content.comment.displayname" position="0"/>
+				<arg name="maxlength" key="${var:maxlength}" resource="false" position="1"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
 		<!--修改密码 -->
 		<form name="updatePassForm">
 			<field property="old" depends="required,minlength,maxlength">
