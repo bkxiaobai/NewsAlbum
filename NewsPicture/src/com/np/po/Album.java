@@ -3,6 +3,7 @@ package com.np.po;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.np.po.AlbumWord;
 import com.np.po.Channel;
 import com.np.po.User;
 import java.io.Serializable;
@@ -26,8 +27,17 @@ public class Album implements Serializable {
 	private Channel channel;
 	// 相册下的图片列表
 	private Set<Photo> photos = new HashSet<Photo>();
-
+	private Set<AlbumWord> albumWords = new HashSet<AlbumWord>();
+	
 	public Album() {
+	}
+
+	public Set<AlbumWord> getAlbumWords() {
+		return albumWords;
+	}
+
+	public void setAlbumWords(Set<AlbumWord> albumWords) {
+		this.albumWords = albumWords;
 	}
 
 	public Album(String title, String keyword,String createDate, long times, User user,

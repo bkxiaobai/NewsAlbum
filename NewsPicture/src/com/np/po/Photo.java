@@ -1,6 +1,10 @@
 package com.np.po;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.np.po.PhotoWord;
 
 public class Photo implements Serializable {
 
@@ -25,6 +29,15 @@ public class Photo implements Serializable {
 	private boolean cover;
 	// 保存该图片所属的图集
 	private Album album;
+	private Set<PhotoWord> photoWords = new HashSet<PhotoWord>();
+	
+	public Set<PhotoWord> getPhotoWords() {
+		return photoWords;
+	}
+
+	public void setPhotoWords(Set<PhotoWord> photoWords) {
+		this.photoWords = photoWords;
+	}
 
 	// 无参数的构造器
 	public Photo(String title, String keyword, long times, String picUrl,

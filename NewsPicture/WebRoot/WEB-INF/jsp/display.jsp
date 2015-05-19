@@ -1,39 +1,55 @@
-<%@ page contentType="text/html; charset=gbk" language="java"%>
+<%@ page contentType="text/html; charset=gb2312" language="java"%>
 <%@ include file="taglibs.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>新闻图库</title>
+<title>新闻图库子系统</title>
 <link href="css.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
-.style1 {
-	color: #333333
+.STYLE1 {
+	color: #000000
 }
-
 </style>
 </head>
-
+<script language="JavaScript" src="js/validate.js"></script>
 <body>
-	<table width="768" align="center" border="0" cellspacing="0"
-		cellpadding="0">
+	<table>
 		<tr>
 			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table align="center">
 					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
+						<td>
+							<div>
+								<img src="images/3.png">
+							</div>
 						</td>
 					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
-					</tr>
-				</table></td>
+				</table>
+			</td>
 		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">主页</a>&nbsp;
+							<a href="myalbum.do">我的相册</a>&nbsp; <a
+							href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+							target="targetFrame">在线编辑</a>&nbsp; <a href="index-3.html">搜索</a>&nbsp;
+							<a href="index-3.html">关于我们</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table width="768" align="center" border="0" cellspacing="0"
+		cellpadding="0">
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
 					cellpadding="0">
 					<tr>
-						<td width="718" height="186" valign="top" bgcolor="#F1F9FF"
+						<td width="718" height="186" valign="top" bgcolor="#FFFFFF"
 							class="td_top"><table width="100%" border="0"
 								cellspacing="0" cellpadding="0">
 								<tr>
@@ -47,11 +63,9 @@
 															<td align="center" class="td_shang8_xia8"><a
 																href="${requestScope.photo.picUrl}" target="_blank"><img
 																	src="${requestScope.photo.bigPicUrl}" border="0">
-															</a>
-															</td>
+															</a></td>
 														</tr>
-													</table>
-												</td>
+													</table></td>
 											</tr>
 										</table>
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -67,61 +81,31 @@
 											</tr>
 											<tr>
 												<td height="20">&nbsp;</td>
-												<td width="60" class="Statistic2">照片名称：</td>
-												<td class="Statistic"><bean:write name="photo"
-														property="title" scope="request" />
+												<td width="60" class="Statistic2"><div align="left">照片名称:</div>
+												<td class="Statistic2"><div align="left">${requestScope.photo.title}</div></td>
+												<td class="Statistic"><div align="left">
+														<bean:write name="photo" property="title" scope="request" />
+													</div>
 												</td>
-												<td colspan="2" class="Statistic"><span class="style1">点击次数：</span>${requestScope.photo.times}</td>
+												<td colspan="2" class="Statistic"><div align="left">
+														<span class="Statistic2">点击次数：${requestScope.photo.times}</span>
+													</div>
+												</td>
 												<td colspan="2" class="Statistic">&nbsp;</td>
 												<td class="Statistic">&nbsp;</td>
+											    <td colspan="3" class="Statistic"><div align="left" class="Statistic2">添加时间：${requestScope.photo.upDate}</div>
+												</td>
 											</tr>
-											<tr>
-												<td width="60" class="Statistic2">所属分类：</td>
-												<td class="Statistic">${requestScope.channle.title}</td>
-												<td colspan="2" class="Statistic"><span class="style1">共有评论：</span>${requestScope.page.rsCount}</td>
-												<td colspan="3" class="Statistic">添加时间：${requestScope.photo.upDate}</td>
-											</tr>
-
 											<tr>
 												<td>&nbsp;</td>
 												<td width="60" class="Statistic2">照片简介：</td>
-												<td colspan="6" class="Statistic">${requestScope.photo.keyword}</td>
+												<td colspan="6" class="Statistic2"><div align="left">${requestScope.photo.keyword}</div></td>
 											</tr>
-											<logic:present name="pwvo" scope="request">
-												<tr>
-													<td>&nbsp;</td>
-													<td class="Statistic2">最近评论：</td>
-													<td colspan="6" class="Statistic">${requestScope.pwvo.content}<span
-														class="time">${requestScope.pwvo.addDate}</span>
-													</td>
-												</tr>
-												<tr>
-													<td height="30">&nbsp;</td>
-													<td class="Statistic">&nbsp;</td>
-													<td colspan="6" class="Statistic"><a
-														href="seecomment.do?photoId=${requestScope.photo.id}">点击查看更多评论</a>
-													</td>
-													<td class="Statistic"></td>
-												</tr>
-											</logic:present>
-											<logic:notPresent name="pwvo" scope="request">
-												<tr>
-													<td>&nbsp;</td>
-													<td width="60" class="Statistic2"><bean:write
-															name="nohave" scope="request" ignore="true" />
-													</td>
-													<td class="Statistic"></td>
-													<td class="Statistic">&nbsp;</td>
-												</tr>
-											</logic:notPresent>
-										</table>
-									</td>
+										</table></td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 					</tr>
-				</table>
-			</td>
+				</table></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>

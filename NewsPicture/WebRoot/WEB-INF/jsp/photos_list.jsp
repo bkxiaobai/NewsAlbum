@@ -1,37 +1,40 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"%>
+<%@ page contentType="text/html; charset=gbk" language="java"%>
 <%@ include file="taglibs.jsp"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <title>新闻图库子系统</title>
 <link href="css.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-<!--
-body {
-	background-image:
-		url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
-}
--->
-</style>
 </head>
-
+<script language="JavaScript" src="js/validate.js"></script>
 <body>
+	<table>
+	<tr>
+		<td>
+			<table align="center">
+				<tr>
+					<td>
+						<div>
+							<img src="images/3.png">
+						</div></td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+			<td>
+				<table>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">主页</a>&nbsp; <a href="myalbum.do">我的相册</a>&nbsp;
+							<a
+							href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+							target="targetFrame">在线编辑</a>&nbsp; <a href="index-3.html">搜索</a>&nbsp;
+							<a href="index-3.html">关于我们</a></td>
+					</tr>
+				</table></td>
+		</tr>
+	</table>
 	<table width="768" align="center" border="0" cellspacing="0"
 		cellpadding="0">
-		<tr>
-			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
-						</td>
-					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<script language="JavaScript" src="JavaScript/validate.js"></script>
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
 					cellpadding="0">
@@ -41,7 +44,7 @@ body {
 						<td width="666" valign="bottom" class="td_shang12"><table
 								width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
-									<td width="400" class="dbule">
+									<td width="400" class="Statistic">
 										欢迎进入${requestScope.album.title}相册 &nbsp;&nbsp;&nbsp;共有
 										${requestScope.page.rsCount}张相片</td>
 									<td class="sail"></td>
@@ -57,7 +60,7 @@ body {
 								<logic:empty name="photos" scope="request">
 									<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
 									<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
-									<span class="sail">暂无照片</span>
+									<span class="PhotoNameClass">暂无照片</span>
 									<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
 									<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
 								</logic:empty>
@@ -81,12 +84,7 @@ body {
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td colspan="5" class="Statistic"><a
-							href="seealbumcomment.do?albumId=${sessionScope.albumInfo.id}">点击查看评论</a>
-						</td>
-						<br>
-					</tr>
+
 					<tr>
 						<td height="40" colspan="5" class="td_down"><div
 								align="center">
@@ -108,5 +106,6 @@ body {
 					</tr>
 				</table></td>
 		</tr>
+</table>
 </body>
 </html>

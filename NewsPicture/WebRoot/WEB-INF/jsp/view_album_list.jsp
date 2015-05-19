@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"%>
+<%@ page contentType="text/html; charset=gbk" language="java"%>
 <%@ include file="taglibs.jsp"%>
 <html>
 <head>
@@ -6,29 +6,43 @@
 <title>新闻图库子系统</title>
 <link href="css.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-<!--
-body {
-	background-image: url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
-}
--->
-</style></head>
-
+.STYLE1 {color: #000000}
+</style>
+</head>
+<script language="JavaScript" src="js/validate.js"></script>
 <body>
-	<table width="768" align="center" border="0" cellspacing="0"
-		cellpadding="0">
-		<tr>
+	<table>
+	<tr>
+		<td>
+			<table align="center">
+				<tr>
+					<td>
+						<div>
+							<img src="images/3.png">
+						</div></td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
 			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table>
 					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
-						</td>
-					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">主页</a>&nbsp; <a href="myalbum.do">我的相册</a>&nbsp;
+							<a
+							href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+							target="targetFrame">在线编辑</a>&nbsp; <a href="index-3.html">搜索</a>&nbsp;
+							<a href="index-3.html">关于我们</a></td>
 					</tr>
 				</table></td>
 		</tr>
-		<SCRIPT language="javascript1.2" src="JavaScript/validate.js"></SCRIPT>
+	</table>
+	<table width="768" align="center" border="0" cellspacing="0"
+		cellpadding="0">
+		<tr>
+            <td height="30" colspan="2">
+				<jsp:include page="l_sail.jsp"/>
+			</td>
+            </tr>
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
 					cellpadding="0">
@@ -38,7 +52,7 @@ body {
 						<td width="666" valign="bottom" class="td_shang12"><table
 								width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
-									<td width="400" class="Statistic"><p><span class="sail">&nbsp;${sessionScope.channel.title} </span>${requestScope.page.rsCount}个相册</p>
+									<td width="400" class="Statistic2"><p><span class="Statistic2">&nbsp;${sessionScope.channel.title} </span>${requestScope.page.rsCount}个相册</p>
 									  </td>
 									<td class="tuijian">&nbsp;</td>
 								</tr>
@@ -104,5 +118,6 @@ body {
 				</table>
 			</td>
 		</tr>
+</table>
 </body>
 </html>
