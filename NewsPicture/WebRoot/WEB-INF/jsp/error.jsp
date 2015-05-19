@@ -60,7 +60,9 @@ body {
                 <td colspan="5">
   	<logic:messagesPresent>
 		<html:messages id="exception">
-			<center><span class="sail"><bean:write name="exception"/>点击<a href="javascript:history.back();">这里返回</a></span>
+			<center><span class="sail">
+			<bean:write name="exception"/>
+			点击<a href="javascript:history.back();">这里返回</a></span>
 			<center>
 		</html:messages>
 	</logic:messagesPresent>				</td>

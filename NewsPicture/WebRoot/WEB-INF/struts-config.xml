@@ -80,7 +80,7 @@
 		</form-bean>
 		<form-bean name="plUploadForm" type="com.np.tool.PlUploadForm">
 			<form-property name="title" type="java.lang.String" />
-			<form-property name="image" type="org.apache.struts.upload.FormFile" />
+			<form-property name="images" type="java.util.List" />
 			<form-property name="keyword" type="java.lang.String" />
 			<form-property name="albumId" type="java.lang.String" />
 		</form-bean>
@@ -226,7 +226,7 @@
 		<!--进入添加相片页面 -->
 		<action path="/addphotolink" forward="/WEB-INF/jsp/add_photo.jsp" />
 		<!--添加相片 -->
-		<action path="/addphoto" name="addPhotoForm" validate="true"
+		<action path="/addphoto" name="plUploadForm" validate="true"
 			input="/WEB-INF/jsp/add_photo.jsp">
 			<forward name="success" path="/WEB-INF/jsp/add_photo.jsp" />
 			<forward name="wrongType" path="/WEB-INF/jsp/add_photo.jsp" />
@@ -304,7 +304,7 @@
 		</action>
 		<!-- 配置 多个上传 -->
 		<action path="/plUpload" type="com.np.action.UploadMoreAction"
-			name="uploadMoreForm" scope="request">
+			name="plUploadForm" scope="request">
 			<forward name="success" path="/plphoto.jsp" />
 		</action>
 		<!-- 进入查看相册评论页面 -->

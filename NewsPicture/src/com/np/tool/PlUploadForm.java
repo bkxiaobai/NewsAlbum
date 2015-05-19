@@ -12,19 +12,28 @@ import javax.imageio.ImageIO;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
+import com.np.tool.FormImage;
+
 
 public class PlUploadForm extends ActionForm {
 
 	private static final long serialVersionUID = 1L;
-	private List<FormFile> images = new ArrayList<FormFile>(); // 用于保存不定数量的FormFile对象
+	private List<FormImage> images = new ArrayList<FormImage>(); // 用于保存不定数量的FormFile对象
 	private String title;
 	private String keyword;
-    private FormFile file;
-	public List<FormFile> getImages() {
+	public List<FormImage> getImages() {
 		return images;
 	}
 
-	public void setImages(List<FormFile> images) {
+	public FormImage getImage(int index) {
+		System.out.println("getImage " + index);
+		while (index >= images.size()) {
+			images.add(new FormImage());
+		}
+		return images.get(index);
+	}
+	
+	public void setImages(List<FormImage> images) {
 		this.images = images;
 	}
 
@@ -43,15 +52,6 @@ public class PlUploadForm extends ActionForm {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
-	public FormFile getFile() {
-		return file;
-	}
-
-	public void setFile(FormFile file) {
-		this.file = file;
-	}
-
 
 	public int getFileCount() // 获得上传文件的个数
 	{
