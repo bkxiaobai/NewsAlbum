@@ -1,63 +1,104 @@
 <%@ page contentType="text/html; charset=gb2312" language="java"%>
 <%@ include file="taglibs.jsp"%>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>新闻图库</title>
+<meta charset="gbk">
+<meta name="format-detection" content="telephone=no" />
+<link rel="icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script src="js/TMForm.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/validate.js"></script>
+<script>
+	$(document).ready(function() {
+		$().UItoTop({
+			easingType : 'easeOutQuart'
+		});
+	})
+</script>
+<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>新闻图库子系统</title>
-<link href="css.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
-body {
-	background-image: url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk2.jpg);
-}
+.STYLE1 {color: #FFFFFF}
 -->
-</style></head>
-
+</style>
+</head>
+<body id="top">
+	<!--==============================header=================================-->
+	<header>
+		<div class="container_12">
+			<div class="grid_12">
+				<h1>
+					<a href="index.jsp"> <img src="images/logo.png"
+						alt="Welcome"> </a>
+				</h1>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="menu_block">
+			<div class="container_12">
+				<div class="grid_12">
+					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+						<ul class="sf-menu">
+							<li class="current"><a href="index.jsp">主页</a>
+							</li>
+							<li><a href="myalbum.do">我的相册</a>
+							</li>
+							<li><a
+								href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+								target="targetFrame">在线编辑</a>
+							</li>
+							<li><a href="index-3.html">搜索</a>
+							</li>
+							<li><a href="index-3.html">关于我们</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</header>
 <body>
-	<table width="768" align="center" border="0" cellspacing="0"
-		cellpadding="0">
+	<table  align="center" >
 		<tr>
-			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<td><table align="center">
 					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
-						</td>
-					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
-					</tr>
-				</table></td>
-		</tr>
-		<tr>
-			<td><table width="100%" border="0" cellspacing="0"
-					cellpadding="0">
-					<tr>
-						<td width="718" height="186" valign="top" class="td_shang14"><table
-								width="100%" border="0" cellspacing="0" cellpadding="0">
+						<td><table
+								align="center">
 								<tr>
-									<td bgcolor="#FFFFFF"><div align="center">
-											<SCRIPT language="JavaScript" src="JavaScript/validate.js">
-												
-											</SCRIPT>
-
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><table width="100%" border="0" cellspacing="0"
-											cellpadding="0">
+									<td><table align="center">
 											<tr>
-												<td width="19" class="td_shang12">&nbsp;</td>
-												<td width="8" class="td_shang12">&nbsp;</td>
 												<td width="666" valign="bottom" class="td_shang12"><table
 														width="100%" border="0" cellspacing="0" cellpadding="0">
 														<tr>
-															<td class="Statistic">&nbsp;&nbsp;&nbsp;<span class="sail">欢迎进入图库</span>&nbsp;&nbsp;<span
-																class="RegFont darkRed"> <a href="reglink.do">如果没有帐号请先注册</a>
-															</span> &nbsp;&nbsp;&nbsp;<span class="RegFont blue">A Happy Day......</span>															</td>
+															<td class="Statistic">&nbsp;&nbsp;&nbsp;<span class="sail STYLE1">欢迎进入图库</span><span class="STYLE1">&nbsp;&nbsp; <a href="reglink.do">如果没有账号请先注册</a>
+															</span> <span class="STYLE1">&nbsp;&nbsp;&nbsp;Hope You Have A Happy Day</span> </td>
 														</tr>
-													</table>
-												</td>
+													</table>												</td>
 												<td width="8" class="td_shang12">&nbsp;</td>
 												<td width="19" height="35" class="td_shang12">&nbsp;</td>
 											</tr>
@@ -66,7 +107,7 @@ body {
 													<div id="RegisterDivWrap">
 														<html:form action="userLogin.do"
 															onsubmit="return validateUserLoginForm(this)">
-															<div>
+														  <div>
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label><span
 																	class="red"> <logic:messagesPresent>
@@ -77,16 +118,16 @@ body {
 																		</logic:messagesPresent> </span> <bean:write name="wrong" scope="request"
 																		ignore="true" /> <bean:write name="success"
 																		scope="request" ignore="true" /> </label>
-															</div>
-															<div>
-																<label><span class="blue">*</span>
-																	<span class="sail">昵&nbsp;&nbsp;&nbsp;&nbsp;称</span>：</label>
+														        <img src="images/1.png" width="221" height="127" align="right"></div>
+															<div >
+																<label><span class="wt STYLE1">*</span>
+																	<span class="sail STYLE1">昵&nbsp;&nbsp;&nbsp;&nbsp;称</span><span class="STYLE1">：</span></label>
 																<html:text property="username" styleClass="input"
 																	value="${requestScope.username}" />
 															</div>
 															<div>
-																<label><span class="blue">*</span>
-																	<span class="sail">密&nbsp;&nbsp;&nbsp;&nbsp;码</span>：</label> 
+																<label><span class="wt STYLE1">*</span>
+																	<span class="sail STYLE1">密&nbsp;&nbsp;&nbsp;&nbsp;码</span><span class="STYLE1">：</span></label> 
 																<input type="password"
 																	name="password" class="input">
 															</div>
@@ -95,8 +136,7 @@ body {
 					&nbsp;&nbsp;<input name="" type="reset" value="重 置" class="input"
 																style="width:50px;">
 														</html:form>
-													</div>
-												</td>
+													</div>												</td>
 											</tr>
 											<tr>
 												<td height="40" colspan="5" class="td_down"><div
@@ -108,8 +148,7 @@ body {
 																<td width="32">&nbsp;</td>
 															</tr>
 														</table>
-													</div>
-												</td>
+													</div>												</td>
 											</tr>
 										</table>
 									</td>

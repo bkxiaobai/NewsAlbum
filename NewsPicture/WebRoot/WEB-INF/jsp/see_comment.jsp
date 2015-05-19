@@ -1,35 +1,84 @@
-<%@ page contentType="text/html; charset=gbk" language="java"%>
+<%@ page contentType="text/html; charset=gb2312" language="java"%>
 <%@ include file="taglibs.jsp"%>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>新闻图库</title>
+<meta charset="gbk">
+<meta name="format-detection" content="telephone=no" />
+<link rel="icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script src="js/TMForm.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/validate.js"></script>
+<script>
+	$(document).ready(function() {
+		$().UItoTop({
+			easingType : 'easeOutQuart'
+		});
+	})
+</script>
+<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>电子相册管理系统</title>
-<link href="css.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-<!--
-.style1 {
-	color: #333333
-}
--->
-</style>
-
 </head>
-<body>
+<body id="top">
+	<!--==============================header=================================-->
+	<header>
+		<div class="container_12">
+			<div class="grid_12">
+				<h1>
+					<a href="index.jsp"> <img src="images/logo.png"
+						alt="Welcome"> </a>
+				</h1>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="menu_block">
+			<div class="container_12">
+				<div class="grid_12">
+					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+						<ul class="sf-menu">
+							<li class="current"><a href="index.jsp">主页</a>
+							</li>
+							<li><a href="myalbum.do">我的相册</a>
+							</li>
+							<li><a
+								href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+								target="targetFrame">在线编辑</a>
+							</li>
+							<li><a href="index-3.html">搜索</a>
+							</li>
+							<li><a href="index-3.html">关于我们</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</header>
 	<table width="768" align="center" border="0" cellspacing="0"
 		cellpadding="0">
-		<tr>
-			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
-						</td>
-					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
-					</tr>
-				</table></td>
-		</tr>
-		<script language="JavaScript" src="JavaScript/validate.js"></script>
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
 					cellpadding="0">
@@ -51,15 +100,12 @@
 																		<td class="td_shang8_xia8"><a
 																			href="${requestScope.photo.picUrl}" target="_blank"><img
 																				src="${requestScope.photo.smallPicUrl}" border="0">
-																		</a>
-																		</td>
+																		</a></td>
 																	</tr>
-																</table>
-															</td>
+																</table></td>
 															<td width="9" bgcolor="#FFFFFF">&nbsp;</td>
 														</tr>
-													</table>
-												</td>
+													</table></td>
 												<td><table width="100%" border="0" cellspacing="0"
 														cellpadding="0">
 														<tr>
@@ -101,8 +147,7 @@
 															</td>
 															<td>&nbsp;</td>
 														</tr>
-													</table>
-												</td>
+													</table></td>
 											</tr>
 										</table>
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -120,8 +165,7 @@
 																	<td class="time2"><div align="center">
 																			<img src="images/comment/man.gif" width="18"
 																				height="19">
-																		</div>
-																	</td>
+																		</div></td>
 																	<td class="comment_name">${pageScope.pwvo.UserName}</td>
 																	<td width="380" class="time2">[
 																		${pageScope.pwvo.addDate} ]</td>
@@ -139,12 +183,12 @@
 														<logic:notPresent name="pwvo" scope="request">
 															<td align="center" colspan="2" class="comment_info">暂无评论</td>
 														</logic:notPresent>
-													</table></td>
+													</table>
+												</td>
 											</tr>
 											<tr>
 												<td width="3%" height="50" class="page"><div
-														align="left"></div>
-												</td>
+														align="left"></div></td>
 												<td width="30%" class="page"><form
 														name="photoWordPageForm" action="othercomment.do">
 														<input type="hidden" name="currentPage"
@@ -153,12 +197,10 @@
 															value="${requestScope.page.pageCount}"> <input
 															type="hidden" name="photoId"
 															value="${requestScope.photo.id}">
-													</form>
-												</td>
+													</form></td>
 												<td width="45%" class="page">&nbsp;</td>
 												<td width="22%" class="page"><a
-													href="javascript:showCommentForm();">我有话说</a>
-												</td>
+													href="javascript:showCommentForm();">我有话说</a></td>
 											</tr>
 											<tr>
 												<td height="50" colspan="4" class="page"><div
@@ -174,13 +216,11 @@
 															下一页</a> <a
 															href="javascript:lastPageNew(photoWordPageForm, photoWordPageForm.currentPage.value, photoWordPageForm.pageCount.value)">
 															尾页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													</div>
-												</td>
+													</div></td>
 											</tr>
 											<tr id="commentForm" style="display:none">
 												<td width="3%" height="50" class="page"><div
-														align="left"></div>
-												</td>
+														align="left"></div></td>
 												<td width="30%" class="page">&nbsp;</td>
 												<td width="45%" class="page"><logic:messagesPresent>
 														<html:messages id="error">
@@ -190,14 +230,11 @@
 													</logic:messagesPresent> <jsp:include page="l_add_comment.jsp" /></td>
 												<td width="22%" class="page"></td>
 											</tr>
-										</table>
-									</td>
+										</table></td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 					</tr>
-				</table>
-			</td>
+				</table></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>

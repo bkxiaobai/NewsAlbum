@@ -1,36 +1,44 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"%>
+<%@ page contentType="text/html; charset=gbk" language="java"%>
 <%@ include file="taglibs.jsp"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>新闻图库</title>
+<title>新闻图库子系统</title>
 <link href="css.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-<!--
-body {
-	background-image:
-		url(file:///E|/Workspaces/NewsPicture/WebRoot/images/index/bk.jpg);
-}
--->
-</style>
 </head>
-
+<script language="JavaScript" src="js/validate.js"></script>
 <body>
-	<table width="768" align="center" border="0" cellspacing="0"
-		cellpadding="0">
+	<table>
 		<tr>
 			<td>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table align="center">
 					<tr>
-						<td height="30" colspan="2"><jsp:include page="l_sail.jsp" />
+						<td>
+							<div>
+								<img src="images/3.png">
+							</div>
 						</td>
 					</tr>
-					<tr>
-						<td height="17"><jsp:include page="my_sail.jsp" /></td>
-					</tr>
-				</table></td>
+				</table>
+			</td>
 		</tr>
-		<script language="JavaScript" src="JavaScript/validate.js"></script>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">主页</a>&nbsp;
+							<a href="myalbum.do">我的相册</a>&nbsp; <a
+							href="http://localhost:8080/NewsPicture/svg-edit-2.6/svg-editor.html"
+							target="targetFrame">在线编辑</a>&nbsp; <a href="index-3.html">搜索</a>&nbsp;
+							<a href="index-3.html">关于我们</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table width="768" align="center" border="0" cellspacing="0"
+		cellpadding="0">
 		<tr>
 			<td><table width="100%" border="0" cellspacing="0"
 					cellpadding="0">
@@ -41,8 +49,8 @@ body {
 								width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td width="400" class="Statistic">
-										&nbsp;${sessionScope.userInfo.username}&nbsp;&nbsp;WelCome&nbsp;${sessionScope.albumInfo.title}&nbsp;
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共有&nbsp;${requestScope.page.rsCount}&nbsp;张图片</td>
+										&nbsp;<span class="comment_info">${sessionScope.userInfo.username}&nbsp;&nbsp;欢迎进入&nbsp;${sessionScope.albumInfo.title}&nbsp;
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共有&nbsp;${requestScope.page.rsCount}&nbsp;张图片</span></td>
 									<td class="sail"><div align="center">
 											<a href="albumlist.do">相册</a>&nbsp;&nbsp;&nbsp;&nbsp; <a
 												href="addphotolink.do?albumId=${sessionScope.albumInfo.id}">上传照片</a>
@@ -56,7 +64,7 @@ body {
 					</tr>
 					<tr>
 						<td colspan="5">
-							<div class="sail">
+							<div class="Statistic2">
 								<bean:write name="success" scope="request" ignore="true" />
 								<bean:write name="noexist" scope="request" ignore="true" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
@@ -73,13 +81,12 @@ body {
 									<div class="PhotoWrapClass">
 										<div class="PhotoImgClass">
 											<a href="viewphoto.do?photoId=${pageScope.photo.id}"><img
-												src="${pageScope.photo.smallPicUrl}" border="0">
-											</a>
+												src="${pageScope.photo.smallPicUrl}" border="0"> </a>
 										</div>
 										<div class="PhotoNameClass">
 											<a href="#">${pageScope.photo.title}</a> |
-											点击：${pageScope.photo.times}<br>
-											<br> 上传时间:<span class="PhotoNameClass">${pageScope.photo.upDate}</span><br>
+											点击：${pageScope.photo.times}<br> <br> 上传时间:<span
+												class="PhotoNameClass">${pageScope.photo.upDate}</span><br>
 											<br> <a
 												href="changeCover.do?photoId=${pageScope.photo.id}">设为封面</a><br>
 											<a
@@ -98,7 +105,7 @@ body {
 							</div></td>
 					</tr>
 					<tr>
-						<td colspan="5" class="Statistic"><a
+						<td colspan="5" class="Statistic2"><a
 							href="seealbumcomment.do?albumId=${sessionScope.albumInfo.id}">点击查看评论</a>
 						</td>
 					</tr>

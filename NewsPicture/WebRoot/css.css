@@ -26,7 +26,7 @@ body {
 .Statistic {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #000000;
+	color: #FFFFFF;
 }
 .tuijian {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -114,10 +114,11 @@ a.02:active {
 	vertical-align: top;
 	border-top-style: none;
 }
+.wt{color:#FFFFFF;}
 .sail {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 15px;
-	color:  #1C86EE;
+	color:  #FFFFFF;
 	text-align: center;
 	font-weight: bold;
 }

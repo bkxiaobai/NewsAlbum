@@ -3,6 +3,8 @@ package com.np.po;
 import java.util.HashSet;
 import java.util.Set;
 import java.io.Serializable;
+import com.np.po.AlbumWord;
+import com.np.po.PhotoWord;
 
 public class User implements Serializable {
 
@@ -15,6 +17,23 @@ public class User implements Serializable {
 	private String password;
 	// 用户相册列表,级联操作
 	private Set<Album> albums = new HashSet<Album>();
+	private Set<AlbumWord> albumWords = new HashSet<AlbumWord>();
+	private Set<PhotoWord> photoWords = new HashSet<PhotoWord>();
+	public Set<AlbumWord> getAlbumWords() {
+		return albumWords;
+	}
+
+	public void setAlbumWords(Set<AlbumWord> albumWords) {
+		this.albumWords = albumWords;
+	}
+
+	public Set<PhotoWord> getPhotoWords() {
+		return photoWords;
+	}
+
+	public void setPhotoWords(Set<PhotoWord> photoWords) {
+		this.photoWords = photoWords;
+	}
 
 	// 无参数的构造器
 	public User() {

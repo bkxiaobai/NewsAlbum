@@ -6,7 +6,6 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
-import com.np.exception.NException;
 import com.np.service.NService;
 
 public class DelAlbumAction extends Action
@@ -28,7 +27,7 @@ public class DelAlbumAction extends Action
 			request.setAttribute("noexist", "你要删除的相册不存在");
 			return mapping.findForward("noexist");
 		}
-		if(ns.checkHavePhotos(albumId))throw new NException("请先把相册内相片全部删除!");
+		//if(ns.checkHavePhotos(albumId))throw new NException("请先把相册内相片全部删除!");
 		ns.deleteAlbum(albumId.intValue());
 		request.setAttribute("success", "删除相册成功");
 		return mapping.findForward("success");
